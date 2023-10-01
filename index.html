@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>pokedex</title>
+	<link href="style.css" rel="stylesheet">
+	<link href="style_pokemon_detail.css" rel="stylesheet">
+	<script src="script.js"></script>
+	<script src="chart.js"></script>
+	<script src="templates.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="loadPokemon()">
+	<header>
+		<div class="pokemon-logo">
+			<img alt="Pokemon-Logo" src="./img/Pokemon_logo_PNG2.png" onclick="loadPokemon()">
+		</div>
+		<div class="header-fields">
+			<input id="pokemon-search" placeholder="Pokemon Name" type="text" onclick="clearPlaceholder()" onblur="restorePlaceholder()">
+			<button class="search-button" type="button" onclick="searchPokemon()">Suchen</button>
+		</div>
+	</header>
+	<div id="mainSite"></div>
+
+	<div class="d-none detail-container" id="detailContainer">
+		<div id="pokedex">
+			<img alt="back" class="back" onclick="closeDetails()" src="./img/arrow-left-solid.svg">
+			<h1 id="pokemonName"></h1>
+			<div id="pokemonBg"></div>
+			<div class="pokemon-id-heart">
+				<img alt="likeHeart" class="like-heart" src="./img/heart-regular.svg">
+				<span class="pokemon-id" id="pokemonId">#001</span>
+			</div>
+		</div>
+		<div class="info-container">
+			<div class="pokemonImage">
+				<img id="pokemonImage">
+			</div>
+			<div class="headingPokemonCard">
+				<h5 onclick="getInfo('about')">About</h5>
+				<h5 onclick="getInfo('stats')">Stats</h5>
+				<h5 onclick="getInfo('evolution')">Evolution</h5>
+				<h5 onclick="getInfo('moves')">Moves</h5>
+			</div>
+			<div id="bottomLine"></div>
+			<div id="pokemonInfo"></div>
+		</div>
+	</div>
+	<div class="btn-more-pokemon">
+		<button class="more-pokemon" onclick="loadMorePokemon()" type="button">Pokemon laden</button>
+	</div>
+</body>
+</html>
